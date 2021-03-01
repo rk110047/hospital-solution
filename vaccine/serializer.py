@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import VaccineType,Vaccine
+from .models import VaccineType,Vaccine,VaccineGroups
 from hospital.serializer import HospitalSerializer
 
 
@@ -17,3 +17,10 @@ class VaccineSerializer(serializers.ModelSerializer):
 	class Meta:
 		model 	=	Vaccine
 		fields 	=	"__all__"
+
+
+class VaccineGroupsSerializer(serializers.ModelSerializer):
+	vaccines 	=	VaccineSerializer()	
+	class Meta:
+		model 	=	VaccineGroups
+		fields	=	'__all__'

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import generics
-from .serializer import VaccineTypeSerializer,VaccineSerializer
-from .models import VaccineType,Vaccine
+from .serializer import VaccineTypeSerializer,VaccineSerializer,VaccineGroupsSerializer
+from .models import VaccineType,Vaccine,VaccineGroups
 
 # Create your views here.
 
@@ -22,3 +22,10 @@ class VaccinesOfHospitalsAPIView(generics.GenericAPIView):
 		query  			=		Vaccine.objects.filter(vaccine_name=vaccine_name)
 		serialize 		=		VaccineSerializer(query,context={'request': request},many=True)
 		return Response(serialize.data)
+
+
+class VaccineGroupsListCreateAPIVIew(generics.ListCreateAPIView):
+	authentication_classses 		=	[]
+	permission_classes    			=	[]
+	serializer_class 				=	VaccineGroupsSerializer
+	queryset 						=	VaccineGroups.objects.all()

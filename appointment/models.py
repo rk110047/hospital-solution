@@ -1,6 +1,6 @@
 from django.db import models
 from authentication.models import SubUser
-from vaccine.models import Vaccine
+from vaccine.models import Vaccine,VaccineGroups
 from django.contrib.auth import get_user_model
 from .utils import unique_id_generator
 from django.db.models.signals import pre_save
@@ -14,7 +14,8 @@ class Appointment(models.Model):
 	appointment_id		=		models.CharField(max_length=120)
 	user 				=		models.ForeignKey(User,on_delete=models.CASCADE)
 	patient  			=		models.ForeignKey(SubUser,on_delete=models.CASCADE)
-	vaccine 			=		models.ForeignKey(Vaccine,on_delete=models.CASCADE)
+	vaccine 			=		models.ForeignKey(Vaccine,on_delete=models.CASCADE,null=True,blank=True)
+	vaccine_group 		=		models.ForeignKey(VaccineGroups,on_delete=models.CASCADE,null=True,blank=True)
 	appoitment_date 	=		models.DateField()
 	
 
