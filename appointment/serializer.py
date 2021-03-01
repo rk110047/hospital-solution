@@ -8,7 +8,7 @@ class AppointmentSerializer(serializers.ModelSerializer):
 	class Meta:
 		model 				=		Appointment
 		fields 				=		"__all__"
-		read_only_fields 	=		['user']
+		read_only_fields 	=		['user','appointment_id']
 
 
 class AppointmentListSerializer(serializers.ModelSerializer):

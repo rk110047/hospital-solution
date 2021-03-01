@@ -23,4 +23,12 @@ class Vaccine(models.Model):
 
 
 	def __str__(self):
-		return F'{self.vaccine_name}'  	
+		return F'{self.vaccine_name}' 
+
+class VaccineGroups(models.Model):
+	group_name 			=		models.CharField(max_length=120)
+	vaccines 			=		models.ManyToManyField(Vaccine) 
+	age_group 			=		models.IntegerField()
+
+	def __str__(self):
+		return self.group_name

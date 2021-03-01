@@ -34,7 +34,7 @@ class LoginWithTokenAuthenticationAPIView(generics.GenericAPIView):
             # is_expired, token = token_expire_handler(token)     # The implementation will be described further
 
             return Response({ 
-                'token': token.key,
+                'token': token.key,'username':user.username,'email':user.email
             }, status=status.HTTP_200_OK)
         response = {
         "data": {

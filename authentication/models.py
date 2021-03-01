@@ -10,6 +10,7 @@ class SubUser(models.Model):
 	name 		=		models.CharField(max_length=120)
 	relation 	=		models.CharField(max_length=120)
 	age 		=		models.CharField(max_length=120)
+	profession  =       models.CharField(max_length=120)
 
 	def __str__(self):
 		return 	self.name
