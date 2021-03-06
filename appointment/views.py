@@ -14,6 +14,7 @@ class AppointMentCreateAPIView(generics.CreateAPIView):
 
 
 	def perform_create(self,serializer):
+		print(self.request.POST)
 		user 	=	self.request.user
 		serializer.save(user=user)
 
